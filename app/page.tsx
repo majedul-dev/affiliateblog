@@ -1,9 +1,9 @@
-import { PostsGrid } from '@/components/PostsGrid'
-import { getAllPosts, getAllTags } from '@/lib/markdown'
+import { PostsGrid } from "@/components/PostsGrid";
+import { getAllPosts, getAllTags } from "@/lib/markdown";
 
-export default function Home() {
-  const posts = getAllPosts()
-  const allTags = getAllTags()
+export default async function Home() {
+  const posts = await getAllPosts();
+  const allTags = await getAllTags();
 
   return (
     <div className="container mx-auto px-4 py-12">
@@ -12,11 +12,12 @@ export default function Home() {
           Product Reviews & Recommendations
         </h1>
         <p className="text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-          Find the best products with our honest, in-depth reviews and buying guides
+          Find the best products with our honest, in-depth reviews and buying
+          guides
         </p>
       </section>
 
       <PostsGrid initialPosts={posts} allTags={allTags} />
     </div>
-  )
+  );
 }
